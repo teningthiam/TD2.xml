@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<facture xmlns:fact="http://www.facture.com/facture">
+    <fact:montant>10$</fact:montant>
+    <fact:nom>Jean</fact:nom>
+</facture>
+
+1. Quel est l'espace de noms de l'élément fact:montant dans l'exemple suivant
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<fact:facture xmlns:fact="http://www.domaine.com/facture">
+<fact:facture xmlns:fact="http://www.domaine.com/facture2">
+</fact:facture>
+<fact:montant />
+</fact:facture>
+// l'espace de nom de l'element fact:montant est :' xmlns:fact="http://www.domaine.com/facture2"'
+
+2-a: l'element "mots-cles" appartient a l'espace de nom xmlns="http://www.yahoo.com/">
+
+2-b:l'element recherche appartient a l'espace de nom par défaut, qui est identifié par l'URI "http://www.google.com/"
+
+2-c: l'element recherhe appartient a l'espace de nom xmlns:yahoo2="http://www.yahoo.com/">
+
+2-d: l'element "nombre appartient a l'espace de nom xmlns:yahoo2="http://www.yahoo.com/">
+
+2-e:Il y a deux espaces de noms déclarés dans ce document :
+
+    "http://www.google.com/"
+    "http://www.yahoo.com/"
+    
+    USAGE INCORRECTE:
+    correction du document:
+    Corriger le document suivant:
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<expedition xmlns:fact="http://www.domaine.com/facture">
+  <fact:facture 
+  </fact:facture>
+  <fact:nom></fact:nom>
+</expedition>
+
+DOCUMENT COMPOSITE
+1
+<rss version="2.0">
+  <channel>
+    <title>Liste de Cours</title>
+    <description>Flux RSS contenant une liste de cours</description>
+    <item>
+      <title>Cours de Mathématiques</title>
+      <description>Ce cours couvre les concepts de base des mathématiques.</description>
+    </item>
+    <item>
+      <title>Cours de Physique</title>
+      <description>Ce cours explore les lois fondamentales de la physique.</description>
+    </item>
+    <item>
+      <title>Cours de Français</title>
+      <description>Ce cours se concentre sur la grammaire et la littérature françaises.</description>
+    </item>
+    <!-- Ajoutez plus d'items de cours selon vos besoins -->
+  </channel>
+</rss>
+
+2-a:
+<rss xmlns:rss="http://inf356.monoidal.net/monRSS" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Theses Feed</title>
+    <link>http://example.com/theses</link>
+    <description>Feed for theses</description>
+    <item>
+      <title>Thesis 1</title>
+      <link>http://example.com/thesis1</link>
+      <description>A description of Thesis 1</description>
+      <dc:creator>Author 1</dc:creator>
+      <dc:date>2024-01-01</dc:date>
+      <dc:language>English</dc:language>
+      <dc:publisher>Publisher 1</dc:publisher>
+      <dc:subject>Subject 1</dc:subject>
+    </item>
+    <item>
+      <title>Thesis 2</title>
+      <link>http://example.com/thesis2</link>
+      <description>A description of Thesis 2</description>
+      <dc:creator>Author 2</dc:creator>
+      <dc:date>2024-02-01</dc:date>
+      <dc:language>French</dc:language>
+      <dc:publisher>Publisher 2</dc:publisher>
+      <dc:subject>Subject 2</dc:subject>
+    </item>
+  </channel>
+</rss>
+
+2-b:
+<!ELEMENT rss (channel)>
+<!ELEMENT channel (title, link, description, item+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT item (title, link, description, dc:creator, dc:date, dc:language, dc:publisher, dc:subject)>
+<!ELEMENT dc:creator (#PCDATA)>
+<!ELEMENT dc:date (#PCDATA)>
+<!ELEMENT dc:language (#PCDATA)>
+<!ELEMENT dc:publisher (#PCDATA)>
+<!ELEMENT dc:subject (#PCDATA)>
+<!ATTLIST rss version CDATA #REQUIRED>
+<!ATTLIST channel xmlns:rss CDATA #FIXED "http://inf356.monoidal.net/monRSS">
+<!ATTLIST channel xmlns:dc CDATA #FIXED "http://purl.org/dc/elements/1.1/">
+
+SIMPLIFICATION PAR HERITAGE
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:pcv="http://prismstandard.org/namespaces/pcv/1.0/"
+xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+rdf:about="http://wanderlust.com/2000/08/Corfu.jpg">
+<dc:identifier
+rdf:resource="http://wanderlust.com/content/2357845" />
+<dc:creator>
+<pcv:Descriptor rdf:about="http://wanderlust.com/emp3845">
+<pcv:label>John Peterson </pcv:label>
+</pcv:Descriptor>
+</dc:creator>
+<dc:coverage>
+<pcv:Descriptor
+rdf:about="http://prismstandard.org/vocabs/ISO-3166/GR">
+<pcv:label xml:lang="en">Greece</pcv:label>
+<pcv:label xml:lang="fr">Grece</pcv:label>
+</pcv:Descriptor>
+</dc:coverage>
+</rdf:Description>
+</rdf:RDF>
+on ous demande de supprimer tout les prefixes inutiles 
+
+ECRITURE D'UN FICHIER XML
+<bibliotheque>
+  <livres id="0.1>
+  <livre>
+    <livre>
+      <livre>
+        <titre>mettre en oeuvre une base de donnes nosql</titre>
+        <auteur>Rudi Brucher</auteur>
+        <langue>fr</langue>
+        <editeur>Eyrolles</editeur>
+      </livre>
+    </livre>
+  </livre>
+    
+  </livres>
+  <utilisateurs emprunts="IDREFS">
+    <utilisateur>
+      <nom>Mbengue</nom>
+      <prenom>Alice</prenom>
+      <adresse>Rufisque</adresse>
+    </utilisateur>
+    <utilisateur>
+    <nom>Mbengue</nom>
+      <prenom>Bop</prenom>
+      <adresse>Rufisque</adresse>
+    </utilisateur>
+  </utilisateurs>
+</bibliotheque>
+
+LE FICHIER DTD
+<ELEMENT bibliotheque (livre, utulisateur)>
+<ELEMENT livre(titre, auteur,langue,editeur)>
+<ELEMENT utilisateur(nom+, (prenom, adresse)?)>
+<ELEMENT titre(#PCDATA)>
+<ELEMENT auteur(#PCDATA)>
+<ELEMENT langue(#PCDATA)>
+<ELEMENT editeur(#PCDATA)>
+<ELEMENT nom(#PCDATA)>
+<ELEMENT prenom(#PCDATA)>
+<ELEMENT adresse(#PCDATA)>
+
+
+
+
+
+
+
+
+
